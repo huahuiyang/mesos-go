@@ -92,7 +92,7 @@ func disconnectionDecoder(decoder encoding.Decoder, disconnect func()) encoding.
 			return
 		}
 		switch e := u.(type) {
-		case (*scheduler.Event):
+		case *scheduler.Event:
 			if e.GetType() == scheduler.Event_ERROR {
 				// the mesos scheduler API recommends that scheduler implementations
 				// resubscribe in this case. we initiate the disconnection here because
